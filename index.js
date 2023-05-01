@@ -336,8 +336,10 @@ function createKeyFourth(n) {
     keyButtonShiftLeft.className = 'key-shift';
     keyButtonShiftLeft.textContent = 'Shift';
     keyButtonShiftLeft.id = 'ShiftLeft';
-    if (fourthLine.children.length == 0) {
 
+    let sp3 = document.getElementById("ShiftLeft");
+    if (sp3 == null) {
+        
         keyButtonShiftLeft.addEventListener('mousedown', function () {
             this.classList.add('active');
             withShift = 'withShiftOn';
@@ -385,7 +387,7 @@ function createKeyFourth(n) {
             for (let i = 1; i < thirdLine.children.length;) {
                 thirdLine.removeChild(thirdLine.children[i]);
             }
-            for (let i = 0; i < fourthLine.children.length;) {
+            for (let i = 1; i < fourthLine.children.length;) {
                 fourthLine.removeChild(fourthLine.children[i]);
             }
             createKeyFirst(withShift)
@@ -400,6 +402,7 @@ function createKeyFourth(n) {
         })
         fourthLine.appendChild(keyButtonShiftLeft);
     }
+
     for (let i = 37; i <= 46; i++) {
         let keyButton = document.createElement('button');
         keyButton.className = 'key-button';
@@ -420,7 +423,14 @@ function createKeyFourth(n) {
         keyButton.addEventListener('click', function () {
             positionСursor(i, n)
         })
-        fourthLine.appendChild(keyButton);
+        let sp2 = document.getElementById("ShiftRight");
+        if (sp2 == null) {
+            fourthLine.appendChild(keyButton);
+        }
+        else if (sp2 !== null) {
+            let parentDiv = sp2.parentNode;
+            parentDiv.insertBefore(keyButton, sp2);
+        }
     }
 
     let keyButtonArrowUp = document.createElement('button');
@@ -494,7 +504,15 @@ function createKeyFourth(n) {
         setTimeout(() => fieldTextarea.focus(), 50);
 
     })
-    fourthLine.appendChild(keyButtonArrowUp);
+
+    let sp2 = document.getElementById("ShiftRight");
+    if (sp2 == null) {
+        fourthLine.appendChild(keyButtonArrowUp);
+    }
+    else if (sp2 !== null) {
+        let parentDiv = sp2.parentNode;
+        parentDiv.insertBefore(keyButtonArrowUp, sp2);
+    }
 
     let keyButtonShift = document.createElement('button');
     keyButtonShift.className = 'key-shift';
@@ -518,7 +536,7 @@ function createKeyFourth(n) {
         for (let i = 1; i < thirdLine.children.length;) {
             thirdLine.removeChild(thirdLine.children[i]);
         }
-        for (let i = 0; i < fourthLine.children.length;) {
+        for (let i = 1; i < fourthLine.children.length - 1;) {
             fourthLine.removeChild(fourthLine.children[i]);
         }
         createKeyFirst(withShift)
@@ -548,7 +566,7 @@ function createKeyFourth(n) {
         for (let i = 1; i < thirdLine.children.length;) {
             thirdLine.removeChild(thirdLine.children[i]);
         }
-        for (let i = 0; i < fourthLine.children.length;) {
+        for (let i = 1; i < fourthLine.children.length - 1;) {
             fourthLine.removeChild(fourthLine.children[i]);
         }
         createKeyFirst(withShift)
@@ -565,7 +583,10 @@ function createKeyFourth(n) {
     keyButtonShift.addEventListener('click', function () {
 
     })
-    fourthLine.appendChild(keyButtonShift);
+    if (sp2 == null) {
+        fourthLine.appendChild(keyButtonShift);
+    }
+
     return
 }
 createKeyFourth(withShift)
@@ -864,7 +885,7 @@ document.body.addEventListener('keydown', function (index) {
             for (let i = 1; i < thirdLine.children.length;) {
                 thirdLine.removeChild(thirdLine.children[i]);
             }
-            for (let i = 1; i < fourthLine.children.length;) {
+            for (let i = 1; i < fourthLine.children.length - 1;) {
                 fourthLine.removeChild(fourthLine.children[i]);
             }
             createKeyFirst(withShift)
@@ -889,7 +910,7 @@ document.body.addEventListener('keydown', function (index) {
             for (let i = 1; i < thirdLine.children.length;) {
                 thirdLine.removeChild(thirdLine.children[i]);
             }
-            for (let i = 1; i < fourthLine.children.length;) {
+            for (let i = 1; i < fourthLine.children.length - 1;) {
                 fourthLine.removeChild(fourthLine.children[i]);
             }
             createKeyFirst(withShift)
@@ -941,7 +962,7 @@ document.body.addEventListener('keydown', function (index) {
             for (let i = 1; i < thirdLine.children.length;) {
                 thirdLine.removeChild(thirdLine.children[i]);
             }
-            for (let i = 1; i < fourthLine.children.length;) {
+            for (let i = 1; i < fourthLine.children.length - 1;) {
                 fourthLine.removeChild(fourthLine.children[i]);
             }
             createKeyFirst(withShift)
@@ -976,7 +997,7 @@ document.body.addEventListener('keydown', function (index) {
                 for (let j = 0; j < keyField.children[k].children.length; j++) {
                     if (keyField.children[k].children[j].id.toUpperCase() == index.code.toUpperCase() || keyField.children[k].children[j].id.toUpperCase() == index.key.toUpperCase()) {
                         keyField.children[k].children[j].classList.add('active');
-                        if (index.code == 'CapsLock', index.key == 'Meta' || index.key == 'Shift' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
+                        if (index.code == 'CapsLock', index.key == 'Meta' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
                             index.key == 'Backspace' || index.key == 'Enter' || index.key == 'ArrowUp' || index.key == 'ArrowRight' ||
                             index.key == 'ArrowLeft' || index.key == 'ArrowDown' || index.key == ' ' || index.key == 'Delete') {
                             continue
@@ -990,10 +1011,10 @@ document.body.addEventListener('keydown', function (index) {
                                             if (keyField.children[i].children[t].classList[kei] == 'active') {
                                                 for (let y = 0; y < keyField.children.length; y++) {
                                                     for (let u = 0; u < keyField.children[y].children.length; u++) {
-                                                        if (keyField.children[y].children[u].id == 'ShiftLeft' || keyField.children[y].children[u].textContent == 'Shift') {
+                                                        if (keyField.children[y].children[u].id == 'ShiftLeft' || keyField.children[y].children[u].id == 'ShiftRight') {
                                                             for (let keis in keyField.children[y].children[u].classList) {
                                                                 if (keyField.children[y].children[u].classList[keis] == 'active') {
-                                                                    if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Shift' || index.key == 'Control' || index.key == 'Alt' ||
+                                                                    if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
                                                                         index.key == 'Backspace' || index.key == 'Enter' || index.key == 'ArrowUp' || index.key == 'ArrowRight' ||
                                                                         index.key == 'ArrowLeft' || index.key == 'ArrowDown' || index.key == ' ' || index.key == 'Delete') {
 
@@ -1026,7 +1047,7 @@ document.body.addEventListener('keydown', function (index) {
                                                     }
                                                 }
 
-                                                if (index.key == 'Meta' || index.key == 'Shift' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
+                                                if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
                                                     index.key == 'Backspace' || index.key == 'Enter' || index.key == 'ArrowUp' || index.key == 'ArrowRight' ||
                                                     index.key == 'ArrowLeft' || index.key == 'ArrowDown' || index.key == ' ' || index.key == 'Delete') {
                                                     continue
@@ -1063,7 +1084,7 @@ document.body.addEventListener('keydown', function (index) {
                                                         if (keyField.children[y].children[u].id == 'CapsLock') {
                                                             for (let keis in keyField.children[y].children[u].classList) {
                                                                 if (keyField.children[y].children[u].classList[keis] == 'active') {
-                                                                    if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Shift' || index.key == 'Control' || index.key == 'Alt' ||
+                                                                    if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
                                                                         index.key == 'Backspace' || index.key == 'Enter' || index.key == 'ArrowUp' || index.key == 'ArrowRight' ||
                                                                         index.key == 'ArrowLeft' || index.key == 'ArrowDown' || index.key == ' ' || index.key == 'Delete') {
 
@@ -1095,7 +1116,7 @@ document.body.addEventListener('keydown', function (index) {
                                                         }
                                                     }
                                                 }
-                                                if (index.key == 'Meta' || index.key == 'Shift' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
+                                                if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
                                                     index.key == 'Backspace' || index.key == 'Enter' || index.key == 'ArrowUp' || index.key == 'ArrowRight' ||
                                                     index.key == 'ArrowLeft' || index.key == 'ArrowDown' || index.key == ' ' || index.key == 'Delete') {
                                                     continue
@@ -1127,7 +1148,7 @@ document.body.addEventListener('keydown', function (index) {
                                 }
                             }
 
-                            if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Shift' || index.key == 'Control' || index.key == 'Alt' ||
+                            if (index.key == 'Meta' || index.key == 'Tab' || index.key == 'Control' || index.key == 'Alt' ||
                                 index.key == 'Backspace' || index.key == 'Enter' || index.key == 'ArrowUp' || index.key == 'ArrowRight' ||
                                 index.key == 'ArrowLeft' || index.key == 'ArrowDown' || index.key == ' ' || index.key == 'Delete') {
 
@@ -1163,8 +1184,7 @@ document.body.addEventListener('keydown', function (index) {
     }
 })
 document.body.addEventListener('keyup', function (index) {
-    console.log(index.code)
-    if (index.key == 'Shift') {
+    if (index.code == 'ShiftLeft' || index.code == 'ShiftRight') {
 
         if (index.shiftKey === false) {
             withShift = 'withShiftOff';
@@ -1182,7 +1202,7 @@ document.body.addEventListener('keyup', function (index) {
             for (let i = 1; i < thirdLine.children.length;) {
                 thirdLine.removeChild(thirdLine.children[i]);
             }
-            for (let i = 1; i < fourthLine.children.length;) {
+            for (let i = 1; i < fourthLine.children.length - 1;) {
                 fourthLine.removeChild(fourthLine.children[i]);
             }
             createKeyFirst(withShift)
@@ -1228,7 +1248,7 @@ function positionСursor(index, n) {
                     if (keyField.children[i].children[j].classList[kei] == 'active') {
                         for (let y = 0; y < keyField.children.length; y++) {
                             for (let u = 0; u < keyField.children[y].children.length; u++) {
-                                if (keyField.children[y].children[u].id == 'ShiftLeft' || keyField.children[i].children[j].textContent === 'Shift') {
+                                if (keyField.children[y].children[u].id == 'ShiftLeft' || keyField.children[y].children[u].id == 'ShiftRight') {
                                     for (let keis in keyField.children[y].children[u].classList) {
                                         if (keyField.children[y].children[u].classList[keis] == 'active') {
                                             for (let key in arrayOfLettersFin[String(languageSelection)][n][index]) {
@@ -1269,7 +1289,7 @@ function positionСursor(index, n) {
                     }
                 }
             }
-            else if (keyField.children[i].children[j].id == 'ShiftLeft' || keyField.children[i].children[j].textContent === 'Shift') {
+            else if (keyField.children[i].children[j].id == 'ShiftLeft' || keyField.children[i].children[j].id == 'ShiftRight') {
                 for (let kei in keyField.children[i].children[j].classList) {
                     if (keyField.children[i].children[j].classList[kei] == 'active') {
                         for (let y = 0; y < keyField.children.length; y++) {
