@@ -1,0 +1,238 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+._container {
+    display: flex;
+    max-width: 900px;
+    margin: 0px auto;
+    padding: 0px 40px;
+    box-sizing: content-box;
+    flex-direction: column;
+    align-items: center;
+}
+
+.entry-field {
+    width: 89.5%;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.key-field {
+    width: 90%;
+    height: 40%;
+    background: #5a5a5a;
+    margin: 0 auto;
+}
+
+.key-button {
+    margin: 5px;
+    width: 45px;
+    height: 45px;
+    transition: all 0.5s;
+    background: #8abed2;
+    border-radius: 5px;
+}
+
+.key-button:hover {
+    transition: all 0.3s;
+    background: #a29fed;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.key-button.active {
+    transition: all 0.5s;
+    background: #0800f9;
+    border-radius: 30px
+}
+
+.key-space {
+    margin: 5px;
+    width: 320px;
+    height: 45px;
+    transition: all 0.5s;
+    background: #8abed2;
+    border-radius: 5px;
+}
+
+.key-space:hover {
+    transition: all 0.3s;
+    background: #a29fed;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.key-space.active {
+    transition: all 0.5s;
+    background: #0800f9;
+    border-radius: 30px
+}
+
+.key-backspace {
+    margin: 5px;
+    width: 100px;
+    height: 45px;
+    transition: all 0.5s;
+    background: #8abed2;
+    border-radius: 5px;
+}
+
+.key-backspace:hover {
+    transition: all 0.3s;
+    background: #a29fed;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.key-backspace.active {
+    transition: all 0.5s;
+    background: #0800f9;
+    border-radius: 30px
+}
+
+.first-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.second-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.third-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fourth-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fifth-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.key-tab {
+    margin: 5px;
+    width: 75px;
+    height: 45px;
+    transition: all 0.5s;
+    background: #8abed2;
+    border-radius: 5px;
+}
+
+.key-tab:hover {
+    transition: all 0.3s;
+    background: #a29fed;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.key-tab.active {
+    transition: all 0.5s;
+    background: #0800f9;
+    border-radius: 30px
+}
+
+.key-capslock {
+    margin: 5px;
+    width: 110px;
+    height: 45px;
+    transition: all 0.5s;
+    background: #8abed2;
+    border-radius: 5px;
+}
+
+.key-capslock:hover {
+    transition: all 0.3s;
+    background: #a29fed;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.key-capslock.active {
+    transition: all 0.5s;
+    background: #0800f9;
+    border-radius: 30px
+}
+
+.key-shift {
+    margin: 5px;
+    width: 110px;
+    height: 45px;
+    transition: all 0.5s;
+    background: #8abed2;
+    border-radius: 5px;
+}
+
+.key-shift:hover {
+    transition: all 0.3s;
+    background: #a29fed;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.key-shift.active {
+    transition: all 0.5s;
+    background: #0800f9;
+    border-radius: 30px
+}
+
+@media (max-width:767px) {
+
+    .key-shift,
+    .key-button,
+    .key-space,
+    .key-backspace,
+    .key-tab,
+    .key-capslock {
+        font-size: 10px;
+        height: 30px;
+        word-break: break-all;
+        margin: 3px;
+    }
+
+}
+
+@media (max-width:620px) {
+
+    .key-shift,
+    .key-button,
+    .key-space,
+    .key-backspace,
+    .key-tab,
+    .key-capslock {
+        width: 10%;
+        font-size: 7px;
+        margin: 0px;
+        word-break: break-all;
+    }
+
+}
+
+@media (max-width:535px) {
+
+    .key-shift,
+    .key-button,
+    .key-space,
+    .key-backspace,
+    .key-tab,
+    .key-capslock {
+        width: 10%;
+        height: 24px;
+        font-size: 5px;
+    }
+
+    .entry-field {
+        width: 98.5%;
+    }
+
+    .key-field {
+        width: 100%;
+    }
+
+}
